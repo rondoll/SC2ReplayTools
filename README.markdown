@@ -13,4 +13,9 @@ The status of this project is early development.
 
 Developed by rondoll @ 2011
 
+HowTo
+-----
+To get usage instructions execute this in a terminal:
+java -jar SC2ReplayTools-#.jar -help
+
 
