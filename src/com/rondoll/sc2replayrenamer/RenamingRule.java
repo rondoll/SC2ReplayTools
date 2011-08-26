@@ -171,7 +171,7 @@ public class RenamingRule implements IRenamingRule {
 	
 	private void checkIfValidRule(String rule) throws Exception {
 		if (rule.replaceAll("#[^#]*#", "").contains("#")) {
-			throw new Exception("Ony constants may contain '#' in a rule");
+			throw new Exception("Only constants may contain '#' in a rule");
 		}
 	}
 	
