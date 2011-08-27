@@ -56,34 +56,33 @@ public class DataExtractor {
 	
 	private void write(File file, byte[] data) throws IOException {
 		FileOutputStream fileOutputStream = new FileOutputStream(file);
-		fileOutputStream.write(data);
-		fileOutputStream.close();
+		try {
+			fileOutputStream.write(data);
+		} finally {
+			fileOutputStream.close();
+		}
 	}
 	
 	private void read(InputStream inputStream, byte[] data) throws IOException {
-        inputStream.read(data);
+        if (inputStream.read(data) == -1) {
+                throw new IOException("end of stream reached");
+        }
         inputStream.close();
 	}
 	
 	private File createTempFile() throws IOException {
-		File tempFile = null;
-		
-		
-		for (int i = 0 ; i < 10000 ; i++) {
-			tempFile = new File(System.getProperty("java.io.tmpdir") + File.separator + PREFIX + i);
-			if(!tempFile.exists()) {
-				break;
-			}
-		}
- 
+		File tempFile = File.createTempFile(PREFIX, null);
 		return tempFile;
 	}
 	
 	private byte[] getBytes(File file) throws IOException {
 		byte[] data = new byte[(int)file.length()];
 	    InputStream inputStream = new FileInputStream(file);
-	    inputStream.read(data);
-	    inputStream.close();
+		try {
+			inputStream.read(data);
+	    } finally {
+			inputStream.close();
+		}
 	    return data;
 	}
 }

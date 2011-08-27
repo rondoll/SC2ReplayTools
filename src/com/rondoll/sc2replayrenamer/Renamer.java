@@ -20,7 +20,7 @@ public class Renamer {
 	//If a folder, then renames all sc2replays in the folder 
 	public Renamer(File sourceFile, File targetFolder, IRenamingRule renamingRule, boolean keepOriginal) throws Exception {
 		if (!sourceFile.exists()) {
-			throw new Exception("File '" + sourceFile.getAbsolutePath() + "' does not exist");
+			throw new Exception("File or directory '" + sourceFile.getAbsolutePath() + "' does not exist");
 		}
 		if (!targetFolder.exists() && !targetFolder.createNewFile()) {
 			throw new Exception("Could not create folder '" + targetFolder.getAbsolutePath());
@@ -51,11 +51,11 @@ public class Renamer {
 		Parser parser = new Parser();
 		String newFileName = renamingRule.getNewFileName(parser.getReplay(file));
 		//suffix in upper case since that is how the replays are named on my computer
-		File newFile = new File(targetFolder.getAbsolutePath() + File.separator + newFileName + ".SC2REPLAY");
+		File newFile = new File(targetFolder.getAbsolutePath() + File.separator + newFileName + ".SC2Replay");
 		
 		int count = 1;
 		while (newFile.exists()) {
-			newFile = new File(targetFolder.getAbsolutePath() + File.separator + newFileName + " (" + count + ").SC2REPLAY");
+			newFile = new File(targetFolder.getAbsolutePath() + File.separator + newFileName + " (" + count + ").SC2Replay");
 			count++;
 		}
 		
