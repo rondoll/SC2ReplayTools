@@ -55,9 +55,8 @@ public class DataExtractor {
 	}
 	
 	private void write(File file, byte[] data) throws IOException {
-		FileOutputStream fileOutputStream = null;
+		FileOutputStream fileOutputStream = new FileOutputStream(file);
 		try {
-			fileOutputStream = new FileOutputStream(file);
 			fileOutputStream.write(data);
 		} finally {
 			fileOutputStream.close();
@@ -78,9 +77,8 @@ public class DataExtractor {
 	
 	private byte[] getBytes(File file) throws IOException {
 		byte[] data = new byte[(int)file.length()];
-	    InputStream inputStream = null;
+	    InputStream inputStream = new FileInputStream(file);
 		try {
-			inputStream = new FileInputStream(file);
 			inputStream.read(data);
 	    } finally {
 			inputStream.close();
