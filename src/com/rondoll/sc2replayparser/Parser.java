@@ -65,9 +65,9 @@ public class Parser {
 			} else {
 				outcomeString = LOSER;
 			}
-		} else if (currentOutcomeString == UNKNOWN) {
+		} else if (currentOutcomeString.equals(UNKNOWN)) {
 			outcomeString = UNKNOWN;
-		} else if (currentOutcomeString == WINNER) {
+		} else if (currentOutcomeString.equals(WINNER)) {
 			outcomeString = LOSER;
 		} else {
 			outcomeString = WINNER;
@@ -137,12 +137,14 @@ public class Parser {
 	
 	private void parseSingleByteInteger() {
 		offset += 1;
+		// TODO: this does nothing.
 		int singleByteInteger = data[offset] >> 1;
 	}	
 	
 	private void parseFourByteInteger() {
 		offset += 1;
 		byte[] fourByteIntegerBytes = getData(data, offset, 4);
+		// TODO: this does nothing.
 		int fourByteInteger = byteArrayToInt(fourByteIntegerBytes) >> 1;
 		//Only +3 and not +4 since we already did the +1 above
 		offset += 3;
