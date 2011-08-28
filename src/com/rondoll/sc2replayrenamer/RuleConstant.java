@@ -17,4 +17,5 @@ public class RuleConstant {
 	public static final String OUTCOME_TEAM_1 = "#OUTCOME_TEAM_1#";
 	public static final String OUTCOME_TEAM_2 = "#OUTCOME_TEAM_2#";
 	public static final String MAP = "#MAP#";
+	public static final String DATE = "#DATE#";
 }
