@@ -2,6 +2,7 @@ package com.rondoll.sc2replayparser;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Parser {
 	
@@ -50,6 +51,8 @@ public class Parser {
 		
 		replay.map = byteStrings.get(numberOfPlayers * 2);
 		
+		replay.date = new Date(file.lastModified());
+
 		checkForErrors(file, replay);
 		
 		return replay;

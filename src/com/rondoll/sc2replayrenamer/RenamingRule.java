@@ -1,6 +1,7 @@
 package com.rondoll.sc2replayrenamer;
 
 import java.util.ArrayList;
+import java.text.SimpleDateFormat;
 
 import com.rondoll.sc2replayparser.Player;
 import com.rondoll.sc2replayparser.Replay;
@@ -23,7 +24,7 @@ public class RenamingRule implements IRenamingRule {
 			RACES_TEAM_1, RACES_TEAM_2, RACES_ALL, PLAYERS_TEAM_1,
 			PLAYERS_TEAM_2, PLAYERS_ALL, PLAYERS_AND_RACES_TEAM_1,
 			PLAYERS_AND_RACES_TEAM_2, PLAYERS_AND_RACES_ALL, OUTCOME_TEAM_1,
-			OUTCOME_TEAM_2, MAP };
+			OUTCOME_TEAM_2, MAP, DATE };
 	
 	public RenamingRule() {
 		player = PLAYER_NAME;
@@ -332,6 +333,9 @@ public class RenamingRule implements IRenamingRule {
 			returnString += getPlayersAndRaces(str);
 		} else if (MAP.equals(str)) {
 			return replay.map;
+		} else if (DATE.equals(str) && replay.date != null) {
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+			return formatter.format(replay.date);
 		} else if (OUTCOME_TEAM_1.equals(str)) {
 			return replay.team1.get(0).outcome;
 		} else if (OUTCOME_TEAM_2.equals(str)) {
