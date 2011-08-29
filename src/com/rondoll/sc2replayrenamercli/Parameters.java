@@ -25,7 +25,7 @@ public class Parameters {
 	public String prioritizedPlayers;
 
 	@Parameter(names = {"-r"}, description = "Rule used for renaming files. Acceptable values: #PLAYERS_TEAM_1#, #PLAYERS_TEAM_2#, #PLAYERS_ALL#, #RACES_TEAM_1#, #RACES_TEAM_2#, #RACES_ALL#, #PLAYERS_AND_RACES_TEAM_1#, #PLAYERS_AND_RACES_TEAM_2#, #PLAYERS_AND_RACES_ALL#, #OUTCOME_TEAM_1#, #OUTCOME_TEAM_2#, #MAP# and any string not containing '#'.")
-	public String rule = "#PLAYERS_AND_RACES_TEAM_1# vs #PLAYERS_AND_RACES_TEAM_2# on #MAP#";
+	public String rule = "#DATE# #PLAYERS_AND_RACES_TEAM_1# vs #PLAYERS_AND_RACES_TEAM_2# on #MAP#";
 
 	@Parameter(names = {"-p"}, description = "Used by #PLAYERS_TEAM_1#, #PLAYERS_TEAM_2# and #PLAYERS_ALL#.")
 	public String player = "#PLAYER_NAME#";
