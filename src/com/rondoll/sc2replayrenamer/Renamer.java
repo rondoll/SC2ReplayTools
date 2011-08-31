@@ -60,6 +60,7 @@ public class Renamer {
 		}
 		
 		write(file, newFile);
+		newFile.setLastModified(file.lastModified());
 		
 		if (!keepOriginal && !file.delete()) {
 			throw new Exception ("Could not delete original file: '" + file.getAbsolutePath() + "'");
