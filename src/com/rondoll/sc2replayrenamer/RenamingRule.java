@@ -1,6 +1,7 @@
 package com.rondoll.sc2replayrenamer;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.text.SimpleDateFormat;
 
 import com.rondoll.sc2replayparser.Player;
@@ -128,6 +129,7 @@ public class RenamingRule implements IRenamingRule {
 		for (String prioritizedPlayer : prioritizedPlayers) {
 			for (Player player : replay.team1) {
 				if (prioritizedPlayer.equals(player.name)) {
+					Collections.sort(replay.team1, new PlayerComparator(prioritizedPlayers));
 					return;
 				}
 			}
@@ -136,6 +138,7 @@ public class RenamingRule implements IRenamingRule {
 					ArrayList<Player> tempTeam = replay.team1;
 					replay.team1 = replay.team2;
 					replay.team2 = tempTeam;
+					Collections.sort(replay.team1, new PlayerComparator(prioritizedPlayers));
 					return;
 				}
 			}

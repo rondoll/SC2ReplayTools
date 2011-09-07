@@ -10,7 +10,7 @@ public class Parameters {
 	public List<String> source = new ArrayList<String>();
 
 	@Parameter(names = {"-h", "--help"}, description = "Show help.")
-	public Boolean help;	
+	public Boolean help;
 	
 	@Parameter(names = {"-t"}, description = "Target folder to copy files to. If source is a file, then by default the folder that the source file is located in. If source is a folder, then by default the same folder as the source folder.")
 	public String target;
