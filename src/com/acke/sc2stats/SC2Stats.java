@@ -32,7 +32,7 @@ public class SC2Stats {
 		excludeComputerPlayerRule.setShortRaceName(true);
 
 		File[] files = new File(
-				"/Users/knutfunkel/Library/Application Support/Blizzard/StarCraft II/Accounts/113386094/2-S2-1-877626/Replays/Multiplayer")
+				"/Users/knutfunkel/Dropbox/sc/grymme-replays3")
 				.listFiles();
 		for (File file : files) {
 			if (!file.isDirectory()
@@ -59,23 +59,35 @@ public class SC2Stats {
 				+ statsCounters.getTotal1v1Replays());
 		System.out.println("Total wins 1v1s: "
 				+ statsCounters.getTotal1v1Wins());
+		
 		System.out.println("Zvp: " + (double) statsCounters.getZvp()
 				/ (double) statsCounters.getTotalZvp());
+		System.out.println("Wins: "+statsCounters.getZvp()+"/"+statsCounters.getTotalZvp());
 		System.out.println("Zvt: " + (double) statsCounters.getZvt()
 				/ (double) statsCounters.getTotalZvt());
+		System.out.println("Wins: "+statsCounters.getZvt()+"/"+statsCounters.getTotalZvt());
 		System.out.println("Zvz: " + (double) statsCounters.getZvz()
 				/ (double) statsCounters.getTotalZvz());
+		System.out.println("Wins: "+statsCounters.getZvz()+"/"+statsCounters.getTotalZvz());
+		
 		System.out.println("Tvp: " + (double) statsCounters.getTvp()
 				/ (double) statsCounters.getTotalTvp());
-		System.out.println("Tvp: " + (double) statsCounters.getTvz()
+		System.out.println("Wins: "+statsCounters.getTvp()+"/"+statsCounters.getTotalTvp());
+		System.out.println("Tvz: " + (double) statsCounters.getTvz()
 				/ (double) statsCounters.getTotalTvz());
+		System.out.println("Wins: "+statsCounters.getTvz()+"/"+statsCounters.getTotalTvz());
 		System.out.println("Tvt: " + (double) statsCounters.getTvt()
 				/ (double) statsCounters.getTotalTvt());
+		System.out.println("Wins: "+statsCounters.getTvt()+"/"+statsCounters.getTotalTvt());
+		
 		System.out.println("Pvz: " + (double) statsCounters.getPvz()
 				/ (double) statsCounters.getTotalPvz());
+		System.out.println("Wins: "+statsCounters.getPvz()+"/"+statsCounters.getTotalPvz());
 		System.out.println("Pvt: " + (double) statsCounters.getPvt()
 				/ (double) statsCounters.getTotalPvt());
+		System.out.println("Wins: "+statsCounters.getPvt()+"/"+statsCounters.getTotalPvt());
 		System.out.println("Pvp: " + (double) statsCounters.getPvp()
 				/ (double) statsCounters.getTotalPvp());
+		System.out.println("Wins: "+statsCounters.getPvp()+"/"+statsCounters.getTotalPvp());
 	}
 }
