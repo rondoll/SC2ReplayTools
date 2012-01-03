@@ -1,4 +1,4 @@
-<project name="SC2ReplayRenamerCLI" basedir="." default="main">
+<project name="SC2ReplayToolsCLI" basedir="." default="main">
     <property name="src.dir"     value="."/>
     <property name="build.dir"   value="build"/>
     <property name="classes.dir" value="${build.dir}/classes"/>

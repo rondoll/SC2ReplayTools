@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import com.beust.jcommander.Parameter;
 
 public class Parameters {
-	@Parameter(description = "<source file or directory>", arity = 1)
+	@Parameter(description = "<source file or directory> \n (To print player statistics: <main class> stats <user> <source file or directory>) \n", arity = 3)
 	public List<String> source = new ArrayList<String>();
 
 	@Parameter(names = {"-h", "--help"}, description = "Show help.")

@@ -5,6 +5,8 @@ import java.io.File;
 import com.rondoll.sc2replayrenamer.Renamer;
 import com.rondoll.sc2replayrenamer.RenamingRule;
 import static com.rondoll.sc2replayrenamer.RuleConstant.*;
+
+import com.acke.sc2stats.MakeStats;
 import com.beust.jcommander.JCommander;
 
 public class SC2ReplayRenamerCLI {
@@ -14,11 +16,23 @@ public class SC2ReplayRenamerCLI {
 		Parameters parameters = new Parameters();
 		JCommander jc = new JCommander(parameters, args);
 		
-		if (parameters.help != null || parameters.source == null || parameters.source.size() != 1) {
+		if (parameters.source.size() > 1 && parameters.source.get(0).toString().startsWith("stats")) {
+			try {
+				MakeStats makeStats = new MakeStats();
+				makeStats.makeStats(parameters.source.get(1), parameters.source.get(2));
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+
+			return;
+		}
+
+		if (parameters.help != null || parameters.source == null
+				|| parameters.source.size() != 1) {
 			jc.usage();
 			return;
 		}
-		
+
 		try {
 			File source = new File(parameters.source.get(0));
 			File target = null;
@@ -27,7 +41,7 @@ public class SC2ReplayRenamerCLI {
 			}
 
 			RenamingRule renamingRule = new RenamingRule();
-			renamingRule.setRule(parameters.rule);	
+			renamingRule.setRule(parameters.rule);
 			renamingRule.setPlayer(parameters.player);
 			renamingRule.setRace(parameters.race);
 			renamingRule.setPlayerAndRace(parameters.playerAndRace);
@@ -38,11 +52,14 @@ public class SC2ReplayRenamerCLI {
 				renamingRule.setRacesDivider(parameters.racesDivider);
 			}
 			if (parameters.playersAndRacesDivider != null) {
-					renamingRule.setPlayersAndRacesDivider(parameters.playersAndRacesDivider);
+				renamingRule
+						.setPlayersAndRacesDivider(parameters.playersAndRacesDivider);
 			}
 			renamingRule.setShortRaceName(parameters.longRaceNames == null);
 			if (parameters.prioritizedPlayers != null) {
-				renamingRule.setPrioritizedPlayers(parameters.prioritizedPlayers.split(" "));
+				renamingRule
+						.setPrioritizedPlayers(parameters.prioritizedPlayers
+								.split(" "));
 			}
 
 			if (target == null) {
@@ -52,12 +69,13 @@ public class SC2ReplayRenamerCLI {
 					target = source;
 				}
 			}
-			
-			Renamer renamer = new Renamer(source, target, renamingRule, (parameters.delete == null));
+
+			Renamer renamer = new Renamer(source, target, renamingRule,
+					(parameters.delete == null));
 			renamer.rename();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
- 
+
 	}
 }
