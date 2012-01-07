@@ -19,7 +19,7 @@ public class SC2ReplayRenamerCLI {
 		if (parameters.source.size() > 1 && parameters.source.get(0).toString().startsWith("stats")) {
 			try {
 				MakeStats makeStats = new MakeStats();
-				makeStats.makeStats(parameters.source.get(1), parameters.source.get(2));
+				makeStats.makeStats(parameters.source.get(2), parameters.source.get(1));
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
