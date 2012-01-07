@@ -6,7 +6,13 @@ import java.util.ArrayList;
 import com.beust.jcommander.Parameter;
 
 public class Parameters {
-	@Parameter(description = "<source file or directory> \n (To print player statistics: <main class> stats <user> <source file or directory>) \n", arity = 3)
+	@Parameter(description = "renamer|stats <source file or directory> \n" +
+			"\n" +
+			"To print player statistics add <user>\n" +
+			"<main class> stats <source file or directory> <user> " +
+			"\n\n" +
+			"To use the renamer use these paramerters: \n ", arity = 3)
+	
 	public List<String> source = new ArrayList<String>();
 
 	@Parameter(names = {"-h", "--help"}, description = "Show help.")
