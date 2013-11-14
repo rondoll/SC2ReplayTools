@@ -25,7 +25,7 @@ Example output: "player1(Z)player2(Z)player3(T) vs zoidberg(T)grymme(P)apanloco(
 
 Example 2: "d:\sc2replays\High Orbit (20).sc2replay" -t "d:\renamed files" -lr -pp "zoidberg apanloco grymme" -pr "#PLAYER_NAME# as #RACE_NAME#" -ra (#RACE_NAME#) -prd ", " -rd _ -r "#OUTCOME_TEAM_1#! #PLAYERS_AND_RACES_TEAM_1# against #RACES_TEAM_2# on #MAP#"
 The above would move and rename the sc2replay file from the source folder to the target folder with the specified settings
-Example output: "Winner! zoidberg as Terran, grymme as Protoss, apanloco as Zerg against (Zerg)_(Zerg)_(Terran) on High Orbit.sc2replay"
+Example output: "Winner! zoidberg as Terran, grymme as Protoss, apanloco as Zerg against (Zerg)(Zerg)(Terran) on High Orbit.sc2replay"
 
 Contributors
 ------------
