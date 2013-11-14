@@ -11,7 +11,7 @@ Current development status
 
 The status of this project is early development.
 
-Developed by Henrik Neckfors @ Purple Scout AB
+Developed by Henrik Neckfors @ <a href link="www.purplescout.se">Purple Scout AB</link>
 
 HowTo
 -----
